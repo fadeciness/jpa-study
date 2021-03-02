@@ -9,10 +9,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "author")
+@SequenceGenerator(name = "seq_author_generator", sequenceName = "seq_author", allocationSize = 1)
 public class Author {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "seq_author_generator", strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     private Long id;
 
